@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1219">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>AERIS-GIS — Volcanic Gas Dispersion &amp; CanSat Mission</title>
+<meta name="description" content="Project AERIS: HYSPLIT-style volcanic gas dispersion for Philippine volcanoes (Mt. Apo, Mt. Leonard Kniaseff) and CanSat descent / telemetry simulation, in a QGIS-style web GIS.">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet.min.css">
+<link rel="stylesheet" href="css/app.css?v=2.3.0">
+</head>
+<body>
+<div id="app">
+  <nav id="menubar" aria-label="Main menu"></nav>
+  <div id="toolbars" role="toolbar"></div>
+
+  <div id="main">
+    <aside id="leftDock" class="dock-area">
+      <section class="dock" id="browserDock" style="flex:0 0 150px">
+        <div class="dock-title"><span>Browser</span><span class="dt-btns"><button class="dt-btn" data-collapse="browserDock" title="Collapse">▾</button></span></div>
+        <div class="dock-body"><ul class="tree" id="browserTree"></ul></div>
+      </section>
+      <section class="dock grow" id="layersDock">
+        <div class="dock-title"><span>Layers</span><span class="dt-btns"><button class="dt-btn" id="closeLeft" title="Close panel">✕</button></span></div>
+        <div class="dock-tools" id="layerTools"></div>
+        <div class="dock-body"><ul class="tree" id="layerTree"></ul></div>
+      </section>
+    </aside>
+    <div class="splitter" data-side="left"></div>
+
+    <section id="canvasArea" aria-label="Map canvas">
+      <div id="map"></div>
+      <div id="msgbar"></div>
+      <div id="decoTitle" class="deco-title"></div>
+      <div id="decoNorth" class="deco-north">
+        <svg viewBox="0 0 34 46"><path d="M17 3 L27 38 L17 31 L7 38 Z" fill="#fff" stroke="#111" stroke-width="1.2"/><path d="M17 3 L17 31 L7 38 Z" fill="#111"/><text x="17" y="46" font-size="10" text-anchor="middle" font-family="Segoe UI, sans-serif" font-weight="700" fill="#111">N</text></svg>
+      </div>
+      <div id="decoLegend" class="deco-legend hidden"></div>
+      <div id="busy" class="canvas-busy hidden"><span class="spinner"></span><span id="busyText">Working…</span></div>
+    </section>
+
+    <div class="splitter" data-side="right"></div>
+    <aside id="rightDock" class="dock-area">
+      <section class="dock grow">
+        <div class="dock-title"><span id="rightTitle">AERIS Plume Forecast</span><span class="dt-btns"><button class="dt-btn" id="closeRight" title="Close panel">✕</button></span></div>
+        <div class="dock-body" id="rightBody"></div>
+        <div class="dock-tabs" id="rightTabs"></div>
+      </section>
+    </aside>
+  </div>
+
+  <section id="temporalDock">
+    <div class="dock-title"><span>Temporal Controller</span><span class="dt-btns"><button class="dt-btn" id="closeTemporal" title="Close">✕</button></span></div>
+    <div class="tc-row" id="tcRow"></div>
+  </section>
+
+  <footer id="statusbar"></footer>
+</div>
+<div id="windowLayer"></div>
+<div id="menuLayer"></div>
+
+<script src="vendor/leaflet.min.js"></script>
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="js/util.js?v=2.3.0"></script>
+<script src="js/devtools.js?v=2.3.0"></script>
+<script src="js/data.js?v=2.3.0"></script>
+<script src="js/met.js?v=2.3.0"></script>
+<script src="js/model.js?v=2.3.0"></script>
+<script src="js/cansat.js?v=2.3.0"></script>
+<script src="js/maplayers.js?v=2.3.0"></script>
+<script src="js/ui.js?v=2.3.0"></script>
+<script src="js/app.js?v=2.3.0"></script>
+<script src="js/terrain.js?v=2.3.0"></script>
+<script src="js/tutorial.js?v=2.3.0"></script>
+<script src="js/mobile.js?v=2.3.0"></script>
+<script src="js/scene3d.js?v=2.3.0"></script>
+<script src="js/figures.js?v=2.3.0"></script>
+<script src="js/panels.js?v=2.3.0"></script>
+</body>
+</html>
